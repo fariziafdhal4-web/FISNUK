@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume: Peluruhan Radioaktif — Fisika Nuklir</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+<style>
+  :root {
+    --primary: #1a3a5c;
+    --accent: #e67e22;
+    --accent2: #27ae60;
+    --bg: #f8f9fa;
+    --card: #ffffff;
+    --text: #2c3e50;
+    --muted: #7f8c8d;
+    --border: #dee2e6;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+  /* ── Header ── */
+  header {
+    background: linear-gradient(135deg, var(--primary) 0%, #2980b9 100%);
+    color: #fff;
+    padding: 48px 40px 36px;
+    text-align: center;
+  }
+  header .badge {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+  }
+  header h1 { font-size: 2.2em; font-weight: 800; margin-bottom: 8px; }
+  header p.sub { font-size: 1em; opacity: .85; margin-bottom: 6px; }
+  header .sources {
+    font-size: 0.82em; opacity: .7;
+    margin-top: 10px;
+    font-style: italic;
+  }
+
+  /* ── ToC ── */
+  .toc-wrap {
+    max-width: 960px; margin: 32px auto 0; padding: 0 24px;
+  }
+  .toc {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 32px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  }
+  .toc h2 { color: var(--primary); font-size: 1.1em; margin-bottom: 14px; letter-spacing:.5px; }
+  .toc ol { padding-left: 22px; columns: 2; gap: 16px; }
+  .toc li { margin-bottom: 5px; }
+  .toc a { color: var(--primary); text-decoration: none; font-size: .92em; }
+  .toc a:hover { text-decoration: underline; color: var(--accent); }
+
+  /* ── Main ── */
+  main { max-width: 960px; margin: 0 auto; padding: 24px; }
+
+  /* ── Section card ── */
+  .section-card {
+    background: var(--card);
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    padding: 36px 40px;
+    margin-bottom: 28px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.05);
+    scroll-margin-top: 20px;
+  }
+  .section-number {
+    display: inline-block;
+    background: var(--primary);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+  }
+  h2.section-title {
+    color: var(--primary);
+    font-size: 1.45em;
+    font-weight: 800;
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--accent);
+    display: inline-block;
+  }
+
+  /* ── Content blocks ── */
+  .point-list { list-style: none; padding: 0; }
+  .point-list li {
+    padding: 7px 0 7px 28px;
+    position: relative;
+    border-bottom: 1px dashed #ecf0f1;
+  }
+  .point-list li:last-child { border-bottom: none; }
+  .point-list li::before {
+    content: "⚛️";
+    position: absolute; left: 0; top: 7px;
+    font-size: 14px;
+  }
+  .point-list.check li::before { content: "✅"; }
+  .point-list.arrow li::before { content: "➤"; color: var(--accent); font-size: 13px; }
+
+  /* ── Key formula box ── */
+  .formula-box {
+    background: #eaf3fb;
+    border-left: 5px solid #2980b9;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 18px 0;
+    overflow-x: auto;
+  }
+  .formula-box .label {
+    font-size: .78em;
+    font-weight: 700;
+    color: #2980b9;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+
+  /* ── Example / solved problem ── */
+  .example-box {
+    background: #fef9ec;
+    border: 1px solid #f0c26e;
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 20px 0;
+  }
+  .example-box .ex-title {
+    font-weight: 700;
+    color: #b7770d;
+    font-size: .92em;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+    margin-bottom: 10px;
+  }
+  .solution-step {
+    background: #f0fff4;
+    border-left: 4px solid var(--accent2);
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin-top: 12px;
+    font-size: .93em;
+  }
+  .solution-step .step-label {
+    font-weight: 700;
+    color: var(--accent2);
+    margin-bottom: 6px;
+    font-size: .85em;
+    text-transform: uppercase;
+  }
+
+  /* ── Figure description ── */
+  .figure-desc {
+    background: #f4f4f8;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 18px 0;
+    border-left: 4px solid #8e44ad;
+    font-size: .92em;
+  }
+  .figure-desc .fig-label {
+    font-weight: 700;
+    color: #8e44ad;
+    margin-bottom: 6px;
+    font-size: .82em;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+  }
+
+  /* ── Table ── */
+  .styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0;
+    font-size: .88em;
+    box-shadow: 0 1px 6px rgba(0,0,0,.08);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .styled-table thead tr {
+    background: var(--primary);
+    color: #fff;
+    text-align: left;
+  }
+  .styled-table th, .styled-table td {
+    padding: 10px 14px;
+  }
+  .styled-table tbody tr:nth-child(even) { background: #f8f9fa; }
+  .styled-table tbody tr:hover { background: #eaf3fb; }
+
+  /* ── Tag chips ── */
+  .tags { margin: 14px 0 0; }
+  .tag {
+    display: inline-block;
+    background: #eaf3fb;
+    color: #2980b9;
+    border-radius: 14px;
+    padding: 3px 12px;
+    font-size: .78em;
+    font-weight: 600;
+    margin: 3px 3px 3px 0;
+    border: 1px solid #aed6f1;
+  }
+  .tag.green { background: #eafaf1; color: #1e8449; border-color: #a9dfbf; }
+  .tag.orange { background: #fef5e7; color: #b7770d; border-color: #f0c26e; }
+
+  /* ── Highlight callout ── */
+  .callout {
+    display: flex;
+    gap: 12px;
+    background: #fff8e1;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin: 14px 0;
+    border: 1px solid #ffe082;
+    align-items: flex-start;
+  }
+  .callout .icon { font-size: 1.5em; flex-shrink: 0; }
+  .callout .text { font-size: .92em; }
+
+  /* ── Footer ── */
+  footer {
+    text-align: center;
+    padding: 28px;
+    font-size: .82em;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    margin-top: 20px;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 680px) {
+    .section-card { padding: 22px 18px; }
+    header { padding: 32px 18px 24px; }
+    .toc ol { columns: 1; }
+    header h1 { font-size: 1.6em; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ HEADER ═══════════════════ -->
+<header>
+  <div class="badge">📚 Resume Materi Kuliah</div>
+  <h1>☢️ Peluruhan Radioaktif</h1>
+  <p class="sub"><strong>Fisika Nuklir</strong> — Program Studi Pendidikan Fisika</p>
+  <p class="sources">
+    Sumber: Krane, K.S. — <em>Introductory Nuclear Physics</em> &amp;
+    Prasad, R. — <em>Nuclear Physics (Pearson Education)</em>
+  </p>
+</header>
+
+<!-- ═══════════════════ DAFTAR ISI ═══════════════════ -->
+<div class="toc-wrap">
+  <div class="toc">
+    <h2>📋 Daftar Isi</h2>
+    <ol>
+      <li><a href="#s1">Kestabilan Nuklir</a></li>
+      <li><a href="#s2">Hukum Peluruhan Radioaktif</a></li>
+      <li><a href="#s3">Teori Kuantum Peluruhan Radiatif</a></li>
+      <li><a href="#s4">Produksi &amp; Peluruhan Radioaktivitas</a></li>
+      <li><a href="#s5">Rantai Peluruhan Radioaktif</a></li>
+      <li><a href="#s6">Deret Radioaktif Alami</a></li>
+      <li><a href="#s7">Peluruhan Dua Langkah</a></li>
+      <li><a href="#s8">Pertumbuhan Aktivitas Anak</a></li>
+      <li><a href="#s9">Jenis-Jenis Peluruhan</a></li>
+      <li><a href="#s10">Analisis Aktivasi</a></li>
+      <li><a href="#s11">Radioaktivitas Alami</a></li>
+      <li><a href="#s12">Penanggalan Radioaktif</a></li>
+      <li><a href="#s13">Satuan Pengukuran Radiasi</a></li>
+      <li><a href="#s14">Waktu Paruh Rata-Rata</a></li>
+      <li><a href="#s15">Pengukuran Konstanta Peluruhan</a></li>
+      <li><a href="#s16">Umur Mineral &amp; Batuan</a></li>
+    </ol>
+  </div>
+</div>
+
+<main>
+
+<!-- ═══════════════════ SECTION 1 ═══════════════════ -->
+<div class="section-card" id="s1">
+  <span class="section-number">Bagian 01</span>
+  <h2 class="section-title">⚛️ Kestabilan Nuklir (Nuclear Stability)</h2>
+
+  <ul class="point-list arrow">
+    <li>Inti atom tersusun dari <strong>neutron (n)</strong> dan <strong>proton (p)</strong>.</li>
+    <li>Nuklida stabil berkumpul dalam pita sempit disebut <strong>"lembah kestabilan"</strong> pada grafik N (jumlah neutron) vs Z (jumlah proton).</li>
+    <li>Pada inti ringan: stabil jika \(N \approx Z\). Pada inti berat: diperlukan neutron lebih banyak (\(N > Z\)) untuk menyeimbangkan gaya tolak Coulomb antar proton.</li>
+    <li>Batas kestabilan terhadap emisi neutron disebut <strong>garis tetesan neutron (neutron drip line)</strong>; terhadap emisi proton disebut <strong>garis tetesan proton (proton drip line)</strong>.</li>
+  </ul>
+
+  <div class="figure-desc">
+    <div class="fig-label">📊 Ilustrasi Grafik N vs Z (Gambar 6.1 — Prasad)</div>
+    Grafik N (sumbu y) vs Z (sumbu x) menampilkan:
+    <ul style="margin-top:8px; padding-left:18px;">
+      <li>Pita abu-abu = nuklida stabil (lembah kestabilan)</li>
+      <li>Di atas pita → kelebihan neutron → peluruhan β⁻</li>
+      <li>Di bawah pita → kelebihan proton → peluruhan β⁺ / tangkap elektron</li>
+      <li>Sisi kiri atas = garis tetesan neutron; sisi kanan bawah = garis tetesan proton</li>
+      <li>Nuklida berat (A > 140) cenderung memancarkan partikel α atau mengalami fisi</li>
+    </ul>
+  </div>
+
+  <ul class="point-list">
+    <li><strong>Peluruhan β⁻:</strong> Inti kelebihan neutron — neutron berubah jadi proton, memancarkan elektron + antineutrino.</li>
+    <li><strong>Peluruhan β⁺:</strong> Inti kelebihan proton — proton berubah jadi neutron, memancarkan positron + neutrino.</li>
+    <li><strong>Tangkap Elektron (EC):</strong> Proton menyerap elektron orbital K, berubah jadi neutron + neutrino.</li>
+    <li><strong>Peluruhan α:</strong> Inti sangat berat memancarkan partikel \(^4_2\text{He}\) untuk mengurangi Z dan A sekaligus.</li>
+    <li><strong>Peluruhan γ:</strong> Inti dalam keadaan tereksitasi kembali ke keadaan dasar dengan memancarkan foton gamma.</li>
+    <li><strong>Fisi:</strong> Inti sangat berat membelah menjadi dua fragmen yang lebih kecil disertai emisi neutron.</li>
+  </ul>
+
+  <div class="tags">
+    <span class="tag">β⁻ decay</span><span class="tag">β⁺ decay</span>
+    <span class="tag">Electron Capture</span><span class="tag green">α decay</span>
+    <span class="tag green">γ decay</span><span class="tag orange">Fission</span>
+  </div>
+</div>
+
+<!-- ═══════════════════ SECTION 2 ═══════════════════ -->
+<div class="section-card" id="s2">
+  <span class="section-number">Bagian 02</span>
+  <h2 class="section-title">📉 Hukum Peluruhan Radioaktif</h2>
+
+  <ul class="point-list arrow">
+    <li>Dasar hukum: <em>Jumlah inti yang meluruh pada suatu saat berbanding lurus dengan jumlah inti yang ada saat itu</em>.</li>
+    <li>Konstanta peluruhan \(\lambda\) = probabilitas peluruhan per satuan waktu per inti — <strong>konstan</strong>, tidak bergantung usia atom.</li>
+    <li>Peluruhan bersifat <strong>statistik</strong>: tidak bisa diprediksi kapan satu inti tertentu luruh.</li>
+  </ul>
+
+  <div class="formula-box">
+    <div class="label">Persamaan Diferensial Peluruhan</div>
+    $$\lambda = -\frac{dN/dt}{N} \quad \Longrightarrow \quad \frac{dN}{dt} = -\lambda N \tag{6.1}$$
+  </div>
+
+  <div class="formula-box">
+    <div class="label">Hukum Peluruhan Eksponensial</div>
+    $$N(t) = N_0\, e^{-\lambda t} \tag{6.2}$$
+    di mana \(N_0\) = jumlah inti awal pada \(t = 0\).
+  </div>
+
+  <div class="formula-box">
+    <div class="label">Waktu Paruh (Half-Life)</div>
+    $$t_{1/2} = \frac{\ln 2}{\lambda} = \frac{0{,}693}{\lambda} \tag{6.3}$$
+  </div>
+
+  <div class="formula-box">
+    <div class="label">Waktu Rata-Rata (Mean Lifetime)</div>
+    $$\tau = \frac{1}{\lambda} = \frac{t_{1/2}}{0{,}693} = 1{,}44\, t_{1/2} \tag{6.4–6.5}$$
+  </div>
+
+  <div class="formula-box">
+    <div class="label">Aktivitas Sampel</div>
+    $$\mathcal{A}(t) = \lambda N(t) = \mathcal{A}_0\, e^{-\lambda t} \tag{6.9}$$
+    dengan \(\mathcal{A}_0 = \lambda N_0\) adalah aktivitas awal.
+  </div>
+
+  <div class="figure-desc">
+    <div class="fig-label">📊 Grafik Peluruhan Eksponensial (Gambar 6.1 — Krane)</div>
+    (a) <strong>Grafik linier</strong>: aktivitas \(\mathcal{A}\) menurun secara eksponensial terhadap waktu. Titik-titik menunjukkan data pengukuran. Setiap waktu \(t_{1/2}\) aktivitas turun setengahnya.<br><br>
+    (b) <strong>Grafik semilog</strong> (\(\ln\mathcal{A}\) vs \(t\)): menghasilkan garis lurus dengan kemiringan \(-\lambda\). Cara praktis untuk menentukan \(t_{1/2}\) dari data eksperimen.
+  </div>
+
+  <div class="callout">
+    <div class="icon">💡</div>
+    <div class="text"><strong>Catatan penting:</strong> Aktivitas \(\mathcal{A}\) hanya memberikan informasi tentang <em>laju disintegrasi</em> — tidak memberi tahu jenis atau energi radiasi yang dipancarkan.</div>
+  </div>
+
+  <p style="margin-top:14px;"><strong>Satuan Aktivitas:</strong></p>
+  <table class="styled-table">
+    <thead><tr><th>Satuan</th><th>Definisi</th><th>Setara</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Becquerel (Bq)</strong></td><td>1 peluruhan/detik</td><td>Satuan SI</td></tr>
+      <tr><td><strong>Curie (Ci)</strong></td><td>\(3{,}7 \times 10^{10}\) peluruhan/detik</td><td>Aktivitas 1 gram Ra-226</td></tr>
+      <tr><td><strong>1 Ci</strong></td><td>= \(3{,}7 \times 10^{10}\) Bq</td><td>—</td></tr>
+    </tbody>
+  </table>
+
+  <div class="example-box">
+    <div class="ex-title">📝 Contoh Soal: Menghitung Waktu Paruh</div>
+    <p>Diketahui sampel radioaktif \(^{147}\text{Sm}\) (15,1% dari Sm alami). Satu gram Sm menghasilkan 89 ± 5 peluruhan α per detik. Tentukan waktu paruh!</p>
+    <div class="solution-step">
+      <div class="step-label">✏️ Penyelesaian</div>
+      <p><strong>Langkah 1</strong>: Hitung jumlah atom \(^{147}\text{Sm}\) dalam 1 gram Sm:<br>
+      $$N = 0{,}151 \times \frac{1\,\text{g}}{147\,\text{g/mol}} \times 6{,}022 \times 10^{23} \approx 6{,}18 \times 10^{20}\text{ atom}$$</p>
+      <p><strong>Langkah 2</strong>: Dari definisi aktivitas:
+      $$\lambda = \frac{\mathcal{A}}{N} = \frac{89}{6{,}18 \times 10^{20}} \approx 1{,}44 \times 10^{-19}\,\text{s}^{-1}$$</p>
+      <p><strong>Langkah 3</strong>: Waktu paruh:
+      $$t_{1/2} = \frac{0{,}693}{\lambda} = \frac{0{,}693}{1{,}44 \times 10^{-19}} \approx 4{,}8 \times 10^{18}\,\text{s} \approx 1{,}5 \times 10^{11}\text{ tahun}$$</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SECTION 3 ═══════════════════ -->
+<div class="section-card" id="s3">
+  <span class="section-number">Bagian 03</span>
+  <h2 class="section-title">🔬 Teori Kuantum Peluruhan Radiatif</h2>
+
+  <ul class="point-list arrow">
+    <li>Solusi persamaan Schrödinger untuk potensial tak bergantung waktu menghasilkan <strong>keadaan stasioner</strong> — tidak bisa meluruh secara langsung.</li>
+    <li>Peluruhan terjadi karena adanya potensial gangguan lemah \(V'\) yang menyebabkan transisi antar keadaan.</li>
+    <li>Probabilitas transisi dihitung menggunakan <strong>Kaidah Emas Fermi (Fermi's Golden Rule)</strong>.</li>
+  </ul>
+
+  <div class="formula-box">
+    <div class="label">Kaidah Emas Fermi</div>
+    $$\lambda = \frac{2\pi}{\hbar}\,|V'_{fi}|^2\,\rho(E_f) \tag{6.15}$$
+    di mana \(V'_{fi} = \int \psi_f^*\,V'\,\psi_i\,dv\) adalah elemen matriks gangguan, dan \(\rho(E_f)\) adalah kerapatan keadaan akhir.
+  </div>
+
+  <div class="formula-box">
+    <div class="label">Lebar Alami Tingkat Energi</div>
+    $$\Gamma_a = \frac{\hbar}{\tau_a} \tag{6.20}$$
+    Hubungan ketidakpastian energi-waktu: \(\Delta E \cdot \Delta t \sim \hbar\).
+    $$P(E)\,dE = \frac{dE}{(E-E_a)^2 + \Gamma_a^2/4}$$
+    Distribusi Lorentzian di sekitar energi \(E_a\).
+  </div>
+
+  <div class="figure-desc">
+    <div class="fig-label">📊 Distribusi Probabilitas Energi Keadaan Tidak Stabil (Gambar 6.3 — Krane)</div>
+    Grafik berbentuk puncak Lorentzian terpusat di \(E_a\). Lebar setengah maksimum = \(\Gamma_a\). Semakin pendek waktu hidup \(\tau\), semakin lebar puncaknya. <strong>Keadaan dengan energi tepat \(E_a\) tidak bisa diamati</strong> — selalu ada ketidakpastian inherent.
+  </div>
+
+  <ul class="point-list">
+    <li>Tingkat energi nuklir diskret dapat dibedakan jika <strong>pemisahan antar tingkat jauh lebih besar dari lebarnya</strong> (\(\Gamma \ll \Delta E\)).</li>
+    <li>Tingkat rendah nuklir: \(t \gtrsim 10^{-12}\) s → \(\Gamma < 10^{-10}\) MeV; pemisahan ~ \(10^{-3}\) MeV → tingkat-tingkat ini <em>dapat dibedakan</em>.</li>
+    <li>Konstanta peluruhan \(\lambda\) konstan dalam waktu karena \(V'\) tak bergantung waktu → sesuai hukum eksponensial.</li>
+    <li>Setiap inti dalam sampel meluruh <strong>secara independen</strong> satu sama lain.</li>
+  </ul>
+</div>
+
+<!-- ═══════════════════ SECTION 4 ═══════════════════ -->
+<div class="section-card" id="s4">
+  <span class="section-number">Bagian 04</span>
+  <h2 class="section-title">⚡ Produksi &amp; Peluruhan Radioaktivitas</h2>
+
+  <ul class="point-list arrow">
+    <li>Saat inti radioaktif diproduksi secara kontinu (misalnya dalam reaktor/akselerator), hukum peluruhan sederhana \(N = N_0 e^{-\lambda t}\) <strong>tidak berlaku</strong>.</li>
+    <li>Laju produksi: \(R = N_0 \sigma I\) (konstan), di mana \(\sigma\) = tampang lintang reaksi dan \(I\) = fluks partikel.</li>
+  </ul>
+
+  <div class="formula-box">
+    <div class="label">Persamaan Diferensial Produksi-Peluruhan</div>
+    $$\frac{dN_1}{dt} = R - \lambda_1 N_1 \tag{6.22}$$
+  </div>
+
+  <div class="formula-box">
+    <div class="label">Solusi: Jumlah Inti &amp; Aktivitas</div>
+    $$N_1(t) = \frac{R}{\lambda_1}\left(1 - e^{-\lambda_1 t}\right) \tag{6.23}$$
+    $$\mathcal{A}_1(t) = R\left(1 - e^{-\lambda_1 t}\right) \tag{6.24}$$
+  </div>
+
+  <ul class="point-list">
+    <li>Untuk \(t \ll t_{1/2}\): aktivitas tumbuh linier \(\mathcal{A}_1(t) \approx R\lambda_1 t\).</li>
+    <li>Untuk \(t \gg t_{1/2}\): aktivitas mendekati konstan \(\mathcal{A}_1 \approx R\) → <strong>keseimbangan sekuler</strong>.</li>
+    <li>Produksi 75% aktivitas maksimum dicapai setelah radiasi selama <strong>2 waktu paruh</strong>; 87,5% setelah <strong>3 waktu paruh</strong>.</li>
+  </ul>
+
+  <div class="callout">
+    <div class="icon">💡</div>
+    <div class="text"><strong>Efisiensi biaya:</strong> Karena biaya akselerator/reaktor berbanding lurus waktu iradiasi, nilai optimal adalah tetap di <em>rezim linier</em> (\(t \ll t_{1/2}\)).</div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SECTION 5 ═══════════════════ -->
+<div class="section-card" id="s5">
+  <span class="section-number">Bagian 05</span>
+  <h2 class="section-title">🔗 Rantai Peluruhan Radioaktif</h2>
+
+  <ul class="point-list arrow">
+    <li>Jika produk peluruhan juga radioaktif, terbentuk <strong>rantai peluruhan</strong>: \(N_1 \xrightarrow{\lambda_1} N_2 \xrightarrow{\lambda_2} N_3 \xrightarrow{\lambda_3} \cdots \to N_k\)</li>
+    <li>Istilah: induk (parent), anak (daughter), cucu (granddaughter), dst.</li>
+  </ul>
+
+  <div class="formula-box">
+    <div class="label">Persamaan Umum Rantai Peluruhan</div>
+    $$\frac{dN_i}{dt} = \lambda_{i-1}N_{i-1} - \lambda_i N_i \tag{6.8}$$
+    Suku pertama: pembentukan dari peluruhan \(N_{i-1}\). Suku kedua: pengurangan akibat peluruhan sendiri.
+  </div>
+
+  <div class="formula-box">
+    <div class="label">Persamaan Bateman (Solusi Umum)</div>
+    $$\mathcal{A}_n(t) = N_0 \sum_{i=1}^{n} c_i\, e^{-\lambda_i t} \tag{6.37}$$
+    dengan koefisien:
+    $$c_m = \frac{\displaystyle\prod_{i=1}^{n}\lambda_i}{\displaystyle\prod_{i=1}^{n}{}'(\lambda_i - \lambda_m)} \tag{6.38}$$
+    (tanda ' = abaikan suku \(i = m\)).
+  </div>
+
+  <ul class="point-list">
+    <li>Solusi sistem persamaan diferensial ini disebut <strong>Persamaan Bateman</strong>.</li>
+    <li>Dalam keseimbangan sekuler: \(\lambda_1 N_1 = \lambda_2 N_2 = \lambda_3 N_3 = \cdots\)</li>
+  </ul>
+</div>
+
+<!-- ═══════════════════ SECTION 6 ═══════════════════ -->
+<div class="section-card" id="s6">
+  <span class="section-number">Bagian 06</span>
+  <h2 class="section-title">🌍 Deret Radioaktif Alami</h2>
+
+  <ul class="point-list arrow">
+    <li>Peluruhan α mengubah A sebesar 4; peluruhan β tidak mengubah A → terdapat <strong>4 deret independen</strong>.</li>
+    <li>Deret diidentifikasi dari nilai \(A \mod 4\).</li>
+  </ul>
+
+  <table class="styled-table">
+    <thead>
+      <tr><th>Nama Deret</th><th>Tipe</th><th>Inti Terpanjang</th><th>Waktu Paruh (tahun)</th><th>Inti Stabil Akhir</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Torium</strong></td><td>4n</td><td>²³²Th</td><td>\(1{,}41 \times 10^{10}\)</td><td>²⁰⁸Pb</td></tr>
+      <tr><td><strong>Neptuniun</strong></td><td>4n+1</td><td>²³⁷Np</td><td>\(2{,}14 \times 10^6\)</td><td>²⁰⁹Bi</td></tr>
+      <tr><td><strong>Uranium</strong></td><td>4n+2</td><td>²³⁸U</td><td>\(4{,}47 \times 10^9\)</td><td>²⁰⁶Pb</td></tr>
+      <tr><td><strong>Aktinium</strong></td><td>4n+3</td><td>²³⁵U</td><td>\(7{,}04 \times 10^8\)</td><td>²⁰⁷Pb</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <div class="icon">⚠️</div>
+    <div class="text">Deret Neptuniun <strong>tidak ditemukan di alam</strong> karena \(t_{1/2}\) anggota terpanjangnya jauh lebih pendek dari usia Bumi (\(\sim 4{,}5 \times 10^9\) tahun), sehingga telah luruh habis.</div>
+  </div>
+
+  <div class="figure-desc">
+    <div class="fig-label">📊 Deret Torium (Gambar 6.10 — Krane)</div>
+    Diagram grid N vs Z menunjukkan jalur peluruhan deret 4n mulai dari <strong>²³²Th (14 Gy)</strong> hingga inti stabil <strong>²⁰⁸Pb</strong>. Panah diagonal ke kiri bawah = peluruhan α (ΔZ = −2, ΔA = −4). Panah horizontal ke kanan = peluruhan β⁻ (ΔZ = +1). Waktu paruh tiap anggota ditampilkan dalam menit (m), jam (h), hari (d), tahun (y), My (10⁶ y), dan Gy (10⁹ y).
+  </div>
+
+  <ul class="point-list">
+    <li>Semua deret alami melibatkan pelepasan gas radioaktif <strong>radon (Rn)</strong> — berpotensi menyebabkan kanker paru jika terakumulasi dalam bangunan.</li>
+    <li>Radon yang terbentuk dalam batuan dalam dapat terlepas saat terjadi retakan — digunakan sebagai prekursor gempa bumi.</li>
+  </ul>
+</div>
+
+<!-- ═══════════════════ SECTION 7 ═══════════════════ -->
+<div class="section-card" id="s7">
+  <span class="section-number">Bagian 07</span>
+  <h2 class="section-title">🔄 Peluruhan Dua Langkah (Two-Step Decay)</h2>
+
+  <p>Sistem: \(N_1 \xrightarrow{\lambda_1} N_2 \xrightarrow{\lambda_2} N_3\text{ (stabil)}\), dengan kondisi awal \(N_1(0) = N_0\), \(N_2(0) = 0\).</p>
+
+  <div class="formula-box">
+    <div class="label">Jumlah Inti Induk &amp; Anak</div>
+    $$N_1(t) = N_0\,e^{-\lambda_1 t} \tag{6.30}$$
+    $$N_2(t) = N_0\,\frac{\lambda_1}{\lambda_2 - \lambda_1}\left(e^{-\lambda_1 t} - e^{-\lambda_2 t}\right) \tag{6.31}$$
+  </div>
+
+  <div class="formula-box">
+    <div class="label">Aktivitas Anak</div>
+    $$\mathcal{A}_2(t) = N_0\,\frac{\lambda_2\lambda_1}{\lambda_2 - \lambda_1}\left(e^{-\lambda_1 t} - e^{-\lambda_2 t}\right) \tag{6.32}$$
+  </div>
+
+  <p style="margin-top:16px;"><strong>Tiga Kasus Penting:</strong></p>
+
+  <table class="styled-table">
+    <thead><tr><th>Kondisi</th><th>Keseimbangan</th><th>Perilaku</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>\(\lambda_1 \ll \lambda_2\)</td>
+        <td><strong>Keseimbangan Sekuler</strong></td>
+        <td>Aktivitas anak = aktivitas induk: \(\lambda_2 N_2 = \lambda_1 N_1\). Anak meluruh dengan laju induk.</td>
+      </tr>
+      <tr>
+        <td>\(\lambda_1 < \lambda_2\)</td>
+        <td><strong>Keseimbangan Transien</strong></td>
+        <td>Rasio \(\mathcal{A}_2/\mathcal{A}_1\) konstan = \(\lambda_2/(\lambda_2-\lambda_1) > 1\). Anak meluruh efektif dengan \(\lambda_1\).</td>
+      </tr>
+      <tr>
+        <td>\(\lambda_1 > \lambda_2\)</td>
+        <td><strong>Tidak ada keseimbangan</strong></td>
+        <td>Induk luruh cepat; anak tumbuh mencapai maksimum lalu luruh dengan \(\lambda_2\).</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="formula-box">
+    <div class="label">Waktu Aktivitas Anak Maksimum</div>
+    $$t_{\max} = \frac{\ln(\lambda_2/\lambda_1)}{\lambda_2 - \lambda_1} \tag{6.19 — Prasad}$$
+  </div>
+
+  <div class="figure-desc">
+    <div class="fig-label">📊 Keseimbangan Transien (Gambar 6.7 — Krane) &amp; Keseimbangan Sekuler (Gambar 6.6 — Krane)</div>
+    <strong>Gambar 6.6</strong>: Peluruhan ¹³²Te (78 jam) → ¹³²I (2,28 jam) → ¹³²Xe. Aktivitas ¹³²I tumbuh dari 0, mencapai keseimbangan ~sekuler pada sekitar 12 jam, lalu mendekati aktivitas ¹³²Te.<br><br>
+    <strong>Gambar 6.7</strong>: Peluruhan ²³⁴U (2,45×10⁵ y) → ²³⁰Th (8,0×10⁴ y). Ini adalah keseimbangan transien: rasio \(\mathcal{A}_2/\mathcal{A}_1\) mendekati konstanta 1,48 setelah beberapa waktu. Kedua aktivitas turun bersama dengan laju induk.
+  </div>
+
+  <div class="example-box">
+    <div class="ex-title">📝 Contoh Soal: Peluruhan Dua Langkah (S-6.3 — Prasad)</div>
+    <p>Diketahui rantai A (t₁/₂ = 138 hari) → B (t₁/₂ = 5 hari) → C (stabil). Sampel awal A = 5×10⁻¹⁰ g; massa atom A = 210. Tentukan waktu dan jumlah maksimum atom B!</p>
+    <div class="solution-step">
+      <div class="step-label">✏️ Penyelesaian</div>
+      <p>$$N_0^A = \frac{5 \times 10^{-10}\,\text{g}}{210\,\text{g/mol}} \times 6{,}02 \times 10^{23} \approx 1{,}43 \times 10^{12}\text{ atom}$$</p>
+      <p>$$\lambda_A = \frac{0{,}693}{138\,\text{d}} \approx 5{,}02 \times 10^{-3}\,\text{d}^{-1}; \quad \lambda_B = \frac{0{,}693}{5\,\text{d}} \approx 0{,}139\,\text{d}^{-1}$$</p>
+      <p>$$t_{\max} = \frac{\ln(\lambda_B/\lambda_A)}{\lambda_B - \lambda_A} = \frac{\ln(0{,}139/0{,}00502)}{0{,}139 - 0{,}00502} \approx 24{,}6\text{ hari}$$</p>
+      <p>$$N_B^{\max} \approx 1{,}37 \times 10^{10}\text{ atom}$$</p>
+      <p><strong>Jawaban:</strong> Jumlah B maksimum ≈ 1,37×10¹⁰ atom, terjadi pada t ≈ 24,6 hari.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SECTION 8 ═══════════════════ -->
+<div class="section-card" id="s8">
+  <span class="section-number">Bagian 08</span>
+  <h2 class="section-title">📈 Pertumbuhan Aktivitas Anak</h2>
+
+  <ul class="point-list arrow">
+    <li>Ketika sampel mula-mula hanya mengandung induk, aktivitas anak tumbuh dari nol.</li>
+    <li>Pada <strong>keseimbangan transien</strong> (\(\lambda_1 < \lambda_2\)): aktivitas anak melampaui aktivitas induk dan keduanya luruh bersama dengan laju \(\lambda_1\).</li>
+    <li>Pada <strong>keseimbangan sekuler</strong> (\(\lambda_1 \ll \lambda_2\)): aktivitas anak mendekati aktivitas induk dari bawah.</li>
+  </ul>
+
+  <div class="formula-box">
+    <div class="label">Rasio Aktivitas pada Keseimbangan Transien</div>
+    $$\frac{\mathcal{A}_2}{\mathcal{A}_1} = \frac{\lambda_2 N_2}{\lambda_1 N_1} = \frac{\lambda_2}{\lambda_2 - \lambda_1}\left(1 - e^{-(\lambda_2-\lambda_1)t}\right) \tag{6.34}$$
+    Saat \(t \to \infty\): \(\displaystyle\frac{\mathcal{A}_2}{\mathcal{A}_1} \to \frac{\lambda_2}{\lambda_2 - \lambda_1} > 1\)
+  </div>
+
+  <div class="formula-box">
+    <div class="label">Rasio Aktivitas pada Keseimbangan Sekuler</div>
+    Saat \(\lambda_1 \ll \lambda_2\) dan \(t \gg 1/\lambda_2\):
+    $$\mathcal{A}_2 \approx \mathcal{A}_1 \quad \Longrightarrow \quad \lambda_2 N_2 = \lambda_1 N_1$$
+  </div>
+
+  <ul class="point-list">
+    <li>Pada grafik semilog aktivitas campuran dua nuklida: kurva awal non-linier, bagian akhir linier dengan kemiringan = nuklida <em>berumur panjang</em>.</li>
+    <li>Metode grafik: ekstrapolasi bagian linier akhir ke belakang, kurangi dari kurva total → komponen berumur pendek.</li>
+  </ul>
+
+  <div class="figure-desc">
+    <div class="fig-label">📊 Kurva Peluruhan Campuran (Gambar 6.2 — Krane)</div>
+    Grafik semilog menampilkan campuran ⁶⁴Cu (12,7 jam) dan ⁶¹Cu (3,4 jam). Sisi kanan kurva linier → ⁶⁴Cu (umur panjang). Selisih kurva total dengan ekstrapolasi garis lurus → ⁶¹Cu (umur pendek). Intersepsi garis-garis dengan sumbu vertikal = aktivitas awal masing-masing komponen.
+  </div>
+</div>
+
+<!-- ═══════════════════ SECTION 9 ═══════════════════ -->
+<div class="section-card" id="s9">
+  <span class="section-number">Bagian 09</span>
+  <h2 class="section-title">🎯 Jenis-Jenis Peluruhan</h2>
+
+  <table class="styled-table">
+    <thead><tr><th>Jenis</th><th>Proses</th><th>Perubahan Z, N, A</th><th>Contoh</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>α</strong></td>
+        <td>Emisi inti helium \(^4_2\text{He}\)</td>
+        <td>Z→Z-2, N→N-2, A→A-4</td>
+        <td>²²⁶Ra → ²²²Rn + α (t₁/₂ = 1600 y)</td>
+      </tr>
+      <tr>
+        <td><strong>β⁻</strong></td>
+        <td>n → p + e⁻ + \(\bar{\nu}\)</td>
+        <td>Z→Z+1, N→N-1, A tetap</td>
+        <td>¹³¹I → ¹³¹Xe + e⁻ (t₁/₂ = 8,0 d)</td>
+      </tr>
+      <tr>
+        <td><strong>β⁺</strong></td>
+        <td>p → n + e⁺ + \(\nu\)</td>
+        <td>Z→Z-1, N→N+1, A tetap</td>
+        <td>²⁵Al → ²⁵Mg + e⁺ (t₁/₂ = 7,2 s)</td>
+      </tr>
+      <tr>
+        <td><strong>EC</strong></td>
+        <td>p + e⁻ → n + \(\nu\)</td>
+        <td>Z→Z-1, N→N+1, A tetap</td>
+        <td>⁵⁴Mn + e⁻ → ⁵⁴Cr (t₁/₂ = 312 d)</td>
+      </tr>
+      <tr>
+        <td><strong>γ</strong></td>
+        <td>Transisi keadaan tereksitasi→dasar</td>
+        <td>Z, N, A tetap</td>
+        <td>Umumnya menyertai α &amp; β</td>
+      </tr>
+      <tr>
+        <td><strong>Fisi Spontan</strong></td>
+        <td>Inti berat membelah ~menjadi 2</td>
+        <td>Bervariasi statistis</td>
+        <td>²⁵⁶Fm (t₁/₂ = 2,6 h)</td>
+      </tr>
+      <tr>
+        <td><strong>Emisi Nukleon</strong></td>
+        <td>Emisi proton/neutron langsung</td>
+        <td>Z±1 atau N±1</td>
+        <td>Produk fisi kelebihan neutron</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top:18px;"><strong>Branching Ratio &amp; Waktu Paruh Parsial:</strong></p>
+  <ul class="point-list">
+    <li>Bila inti bisa luruh melalui dua mode atau lebih: \(\lambda_t = \lambda_\alpha + \lambda_\beta + \lambda_\varepsilon + \cdots\)</li>
+    <li>Aktivitas selalu luruh dengan <strong>waktu paruh total</strong> \(t_{1/2} = 0{,}693/\lambda_t\), bukan waktu paruh parsial.</li>
+    <li>Contoh ²²⁶Ac (\(t_{1/2} = 29\) jam): \(\lambda_\beta = 83\%\,\lambda_t\), \(\lambda_\varepsilon = 17\%\,\lambda_t\), \(\lambda_\alpha = 6\times10^{-5}\lambda_t\).</li>
+  </ul>
+
+  <div class="callout">
+    <div class="icon">⚠️</div>
+    <div class="text">Dalam β decay: elektron/positron <strong>diciptakan</strong> saat peluruhan (tidak ada sebelumnya). Dalam α decay: nukleon <strong>sudah ada</strong> dalam inti sebelum dipancarkan.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SECTION 10 ═══════════════════ -->
+<div class="section-card" id="s10">
+  <span class="section-number">Bagian 10</span>
+  <h2 class="section-title">🔬 Analisis Aktivasi</h2>
+
+  <ul class="point-list arrow">
+    <li>Sampel ditembaki partikel berakselerasi (proton, deuteron, neutron) → inti target bereaksi menghasilkan nuklida radioaktif.</li>
+    <li>Teknik ini digunakan untuk mengukur <strong>tampang lintang (cross-section) reaksi nuklir</strong>.</li>
+    <li>Laju produksi nuklida Y: \(R = N\,j\,\sigma\) (N = jumlah inti target; j = fluks; σ = tampang lintang).</li>
+  </ul>
+
+  <div class="formula-box">
+    <div class="label">Akumulasi Nuklida Radioaktif</div>
+    $$\text{Laju akumulasi} = R - Re^{-\lambda t} = Nj\sigma\left(1 - e^{-\lambda t}\right) \tag{6.21a}$$
+    Setelah penghentian iradiasi (durasi \(t_1\)), diukur pada waktu \(t_2\) dengan efisiensi detektor \(\varepsilon\):
+    $$\sigma = \frac{N_2\,e^{\lambda t_2}}{N\varepsilon\,j\,(1-e^{-\lambda t_1})} \tag{6.21b}$$
+  </div>
+
+  <ul class="point-list">
+    <li>Setelah iradiasi ~5 waktu rata-rata (\(5\tau\)): laju akumulasi mencapai <strong>jenuh (saturasi)</strong> — tidak ada keuntungan dari iradiasi lebih lama.</li>
+    <li>Teknik ini identik secara matematis dengan pertumbuhan aktivitas anak dalam rantai peluruhan.</li>
+  </ul>
+
+  <div class="formula-box">
+    <div class="label">Penanggalan Karbon-14 (Contoh Khusus)</div>
+    Reaksi: \(^{14}_7\text{N} + n \to\,^{14}_6\text{C} + ^1_1\text{H}\) (oleh sinar kosmik di atmosfer).
+    $$\frac{^{14}\text{C}}{^{12}\text{C}} \approx \frac{1}{10^{12}}\text{ (dalam organisme hidup)}$$
+    Setelah mati, rasio menurun dengan \(t_{1/2}(^{14}\text{C}) = 5730\text{ tahun}\).
+  </div>
+
+  <div class="example-box">
+    <div class="ex-title">📝 Contoh: Usia Arang di Piramida (S-6.2 — Prasad)</div>
+    <p>Arang dari kawasan piramida Mesir menunjukkan aktivitas ¹⁴C = 0,215 s⁻¹ per gram C. Persentase ¹⁴C dalam pohon hidup = 1,35×10⁻¹⁰%. λ = 3,92×10⁻¹⁰ s⁻¹.</p>
+    <div class="solution-step">
+      <div class="step-label">✏️ Penyelesaian</div>
+      <p>Jumlah atom ¹⁴C dalam 1 gram karbon pohon hidup:
+      $$N_0(^{14}\text{C}) = \frac{6{,}02\times10^{23}}{12} \times 1{,}35\times10^{-10}\times 100 \approx 6{,}77\times10^{11}$$</p>
+      <p>Aktivitas awal: \(\mathcal{A}_0 = \lambda N_0 = 3{,}92\times10^{-10} \times 6{,}77\times10^{11} \approx 0{,}265\text{ s}^{-1}\)</p>
+      <p>Usia sampel:
+      $$t = \frac{1}{\lambda}\ln\frac{\mathcal{A}_0}{\mathcal{A}} = \frac{1}{3{,}92\times10^{-10}}\ln\frac{0{,}265}{0{,}215} \approx 1{,}228\times10^{10}\text{ s} \approx 390\text{ tahun}$$</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SECTION 11 ═══════════════════ -->
+<div class="section-card" id="s11">
+  <span class="section-number">Bagian 11</span>
+  <h2 class="section-title">🌱 Radioaktivitas Alami</h2>
+
+  <ul class="point-list arrow">
+    <li>Bumi terbentuk ~4,5×10⁹ tahun lalu; unsur berat terbentuk di interior bintang, nova, supernova.</li>
+    <li>Radioaktivitas alami berasal dari: (1) <strong>deret unsur berat</strong> (U, Th), (2) isotop berumur panjang lain, (3) pembentukan kontinu oleh sinar kosmik.</li>
+    <li>Radioaktivitas inti berat menjadi sumber utama <strong>panas internal Bumi</strong>.</li>
+  </ul>
+
+  <table class="styled-table">
+    <thead><tr><th>Isotop</th><th>t₁/₂ (tahun)</th><th>Keterangan</th></tr></thead>
+    <tbody>
+      <tr><td>⁴⁰K</td><td>\(1{,}28\times10^9\)</td><td>Ada dalam tubuh manusia</td></tr>
+      <tr><td>⁸⁷Rb</td><td>\(4{,}8\times10^{10}\)</td><td>Digunakan penanggalan Rb-Sr</td></tr>
+      <tr><td>¹¹³Cd</td><td>\(9\times10^{15}\)</td><td>Sangat panjang</td></tr>
+      <tr><td>¹⁴C</td><td>5730</td><td>Dibentuk sinar kosmik</td></tr>
+      <tr><td>³H (tritium)</td><td>12,3</td><td>Dibentuk sinar kosmik</td></tr>
+    </tbody>
+  </table>
+
+  <ul class="point-list">
+    <li><strong>Radon (Rn)</strong> — gas radioaktif dari deret U/Th — bisa menumpuk di bangunan tertutup rapat → risiko kanker paru.</li>
+    <li>Konsentrasi Radon meningkat akibat tren bangunan hemat energi (kedap udara).</li>
+    <li><strong>¹⁴C dan ³H</strong> dibentuk oleh reaksi sinar kosmik di atmosfer atas secara kontinu.</li>
+  </ul>
+</div>
+
+<!-- ═══════════════════ SECTION 12 ═══════════════════ -->
+<div class="section-card" id="s12">
+  <span class="section-number">Bagian 12</span>
+  <h2 class="section-title">⏳ Penanggalan Radioaktif</h2>
+
+  <ul class="point-list arrow">
+    <li>Prinsip: rasio induk/anak saat ini dibandingkan kondisi awal memberikan usia sampel.</li>
+    <li>Asumsi dasar: tidak ada inti anak awal (\(N_D(t_0) = 0\)), tidak ada masuk/keluar atom.</li>
+  </ul>
+
+  <div class="formula-box">
+    <div class="label">Rumus Usia Dasar</div>
+    $$N_D(t_1) + N_P(t_1) = N_P(t_0)$$
+    $$\Delta t = \frac{1}{\lambda}\ln\left(1 + \frac{N_D(t_1)}{N_P(t_1)}\right) \tag{6.41}$$
+  </div>
+
+  <div class="formula-box">
+    <div class="label">Metode Isokron (jika ada anak awal)</div>
+    $$\frac{N_D(t_1)}{N_{D'}(t_1)} = \frac{N_P(t_1)}{N_{D'}(t_1)}\left[e^{\lambda\Delta t} - 1\right] + \frac{N_D(t_0)}{N_{D'}(t_0)} \tag{6.44}$$
+    Plot \(y = N_D/N_{D'}\) vs \(x = N_P/N_{D'}\) → garis lurus dengan kemiringan \(m = e^{\lambda\Delta t} - 1\).
+  </div>
+
+  <div class="figure-desc">
+    <div class="fig-label">📊 Isokron Rb-Sr (Gambar 6.11 — Krane)</div>
+    Plot ⁸⁷Sr/⁸⁶Sr (sumbu y) vs ⁸⁷Rb/⁸⁶Sr (sumbu x) untuk berbagai mineral dari Bumi/Bulan. Semua titik data jatuh pada satu garis lurus → usia bersama = 4,53 × 10⁹ tahun. Kelinearan grafik memvalidasi asumsi tidak ada kehilangan atom.
+  </div>
+
+  <p style="margin-top:16px;"><strong>Penanggalan ¹⁴C (Karbon):</strong></p>
+  <ul class="point-list">
+    <li>Berlaku untuk materi organik berusia hingga ~50.000 tahun (10 waktu paruh).</li>
+    <li>Asumsi: produksi ¹⁴C oleh sinar kosmik relatif konstan sepanjang waktu.</li>
+    <li>Divalidasi dengan cincin pohon (dendrokronologi) dan catatan sejarah.</li>
+    <li>Validitas terancam: pembakaran bahan bakar fosil (menambah karbon stabil) dan uji coba nuklir tahun 1950–1960-an (menambah ¹⁴C artifisial).</li>
+  </ul>
+
+  <div class="example-box">
+    <div class="ex-title">📝 Contoh: Usia Kayu Kuno (Soal 18 — Krane)</div>
+    <p>Sampel kayu kuno: 2,1 peluruhan/menit. Pohon baru yang sama: 5,3 peluruhan/menit. Hitung usia sampel! (\(t_{1/2}(^{14}\text{C}) = 5730\) tahun)</p>
+    <div class="solution-step">
+      <div class="step-label">✏️ Penyelesaian</div>
+      <p>$$\Delta t = \frac{t_{1/2}}{0{,}693}\ln\frac{\mathcal{A}_0}{\mathcal{A}} = \frac{5730}{0{,}693}\ln\frac{5{,}3}{2{,}1}$$</p>
+      <p>$$= 8268\,\text{tahun} \times \ln(2{,}524) = 8268 \times 0{,}926 \approx \boxed{7656\text{ tahun}}$$</p>
+    </div>
+  </div>
+
+  <p style="margin-top:16px;"><strong>Metode Penanggalan Lain:</strong></p>
+  <table class="styled-table">
+    <thead><tr><th>Metode</th><th>Pasangan Induk-Anak</th><th>Rentang Waktu</th></tr></thead>
+    <tbody>
+      <tr><td>Rb-Sr</td><td>⁸⁷Rb → ⁸⁷Sr</td><td>~10⁹ tahun</td></tr>
+      <tr><td>U-Pb</td><td>²³⁸U → ²⁰⁶Pb</td><td>~10⁹ tahun</td></tr>
+      <tr><td>K-Ar</td><td>⁴⁰K → ⁴⁰Ar</td><td>~10⁹ tahun</td></tr>
+      <tr><td>Karbon-14</td><td>¹⁴C → ¹⁴N</td><td>&lt; 50.000 tahun</td></tr>
+      <tr><td>Fisi Spontan U</td><td>Jejak fisi di mineral</td><td>~10⁶–10⁹ tahun</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══════════════════ SECTION 13 ═══════════════════ -->
+<div class="section-card" id="s13">
+  <span class="section-number">Bagian 13</span>
+  <h2 class="section-title">📏 Satuan Pengukuran Radiasi</h2>
+
+  <table class="styled-table">
+    <thead><tr><th>Besaran</th><th>Definisi</th><th>Satuan Konvensional</th><th>Satuan SI</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Aktivitas (𝒜)</strong></td><td>Laju peluruhan</td><td>Curie (Ci)</td><td>Becquerel (Bq)</td></tr>
+      <tr><td><strong>Paparan (X)</strong></td><td>Ionisasi di udara</td><td>Röntgen (R)</td><td>C/kg</td></tr>
+      <tr><td><strong>Dosis Serap (D)</strong></td><td>Energi per massa</td><td>rad</td><td>Gray (Gy)</td></tr>
+      <tr><td><strong>Dosis Ekivalen (DE)</strong></td><td>Efek biologis</td><td>rem</td><td>Sievert (Sv)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="formula-box">
+    <div class="label">Konversi Satuan Penting</div>
+    $$1\,\text{Ci} = 3{,}7\times10^{10}\,\text{Bq (peluruhan/s)}$$
+    $$1\,\text{R} = 2{,}58\times10^{-4}\,\text{C/kg}$$
+    $$1\,\text{Gy} = 100\,\text{rad} = 1\,\text{J/kg}$$
+    $$1\,\text{Sv} = 100\,\text{rem}$$
+  </div>
+
+  <div class="formula-box">
+    <div class="label">Dosis Ekivalen</div>
+    $$\text{DE} = D \times QF \tag{6.47}$$
+    Faktor Kualitas (QF): X/β/γ = 1; proton/neutron rendah = 2–5; proton/neutron energetik = 5–10; α = 20.
+  </div>
+
+  <table class="styled-table">
+    <thead><tr><th>Jenis Radiasi</th><th>Faktor Kualitas (QF)</th></tr></thead>
+    <tbody>
+      <tr><td>Sinar-X, β, γ</td><td>1</td></tr>
+      <tr><td>Proton/neutron energi rendah (~keV)</td><td>2–5</td></tr>
+      <tr><td>Proton/neutron energi tinggi (~MeV)</td><td>5–10</td></tr>
+      <tr><td>Partikel α</td><td>20</td></tr>
+    </tbody>
+  </table>
+
+  <ul class="point-list">
+    <li>Dosis latar alami: ~0,1–0,2 rem/tahun.</li>
+    <li>Batas ICRP untuk publik: 0,5 rem/tahun; untuk pekerja radiasi: 5 rem/tahun.</li>
+    <li>Rontgen dada (tulang belakang): ~0,05 rem; Rontgen gigi: ~0,002 rem.</li>
+    <li>Dosis akut >100 rem: <strong>berpotensi fatal</strong>.</li>
+  </ul>
+</div>
+
+<!-- ═══════════════════ SECTION 14 ═══════════════════ -->
+<div class="section-card" id="s14">
+  <span class="section-number">Bagian 14</span>
+  <h2 class="section-title">⏱️ Waktu Hidup Rata-Rata (Mean Life)</h2>
+
+  <ul class="point-list arrow">
+    <li>Setiap inti radioaktif memiliki usia berbeda (sifat statistik) → penting untuk menentukan <strong>usia rata-rata</strong>.</li>
+    <li>Definisi: waktu rata-rata yang dihabiskan inti sebelum meluruh.</li>
+  </ul>
+
+  <div class="formula-box">
+    <div class="label">Derivasi Mean Life</div>
+    $$\tau = \frac{\displaystyle\int_0^\infty t\left|\frac{dN}{dt}\right|dt}{\displaystyle\int_0^\infty\left|\frac{dN}{dt}\right|dt} = \frac{\displaystyle\int_0^\infty t\,\lambda\,e^{-\lambda t}\,dt}{1} \tag{6.4}$$
+    $$\boxed{\tau = \frac{1}{\lambda} = \frac{t_{1/2}}{0{,}693} = 1{,}44\,t_{1/2}} \tag{6.5}$$
+  </div>
+
+  <ul class="point-list">
+    <li>Setelah satu mean life \(\tau\): jumlah inti turun menjadi \(N_0/e \approx 36{,}8\%\, N_0\).</li>
+    <li><strong>Interpretasi geometris</strong>: Mean life = waktu yang diperlukan untuk seluruh sampel luruh jika laju peluruhan konstan sama dengan laju awal.</li>
+  </ul>
+
+  <div class="example-box">
+    <div class="ex-title">📝 Contoh: Hitung Mean Life ¹⁴C</div>
+    <p>Diketahui \(t_{1/2}(^{14}\text{C}) = 5730\) tahun. Tentukan mean life dan konstanta peluruhan!</p>
+    <div class="solution-step">
+      <div class="step-label">✏️ Penyelesaian</div>
+      <p>$$\tau = \frac{t_{1/2}}{0{,}693} = \frac{5730}{0{,}693} \approx 8267\text{ tahun}$$</p>
+      <p>$$\lambda = \frac{1}{\tau} = \frac{1}{8267\text{ tahun}} \approx 1{,}21\times10^{-4}\text{ tahun}^{-1}$$</p>
+      <p>$$= 3{,}83\times10^{-12}\text{ s}^{-1}$$</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SECTION 15 ═══════════════════ -->
+<div class="section-card" id="s15">
+  <span class="section-number">Bagian 15</span>
+  <h2 class="section-title">📡 Pengukuran Konstanta Peluruhan</h2>
+
+  <p><strong>Metode bergantung rentang waktu paruh:</strong></p>
+
+  <ul class="point-list arrow">
+    <li><strong>t₁/₂ sedang (detik–tahun)</strong>: Ukur aktivitas vs waktu → plot semilog → kemiringan = −λ.</li>
+    <li><strong>t₁/₂ sangat panjang</strong>: Ukur aktivitas langsung (\(|\dot{N}|\)) dan hitung jumlah atom N (dari massa dan komposisi kimia) → \(\lambda = \mathcal{A}/N\).</li>
+    <li><strong>t₁/₂ sangat pendek (ns–ps)</strong>: Teknik koinsiden waktu atau spektroskopi resolusi tinggi (Bab 7 Krane).</li>
+  </ul>
+
+  <div class="formula-box">
+    <div class="label">Dari Pengukuran Langsung</div>
+    $$\lambda = \frac{\mathcal{A}}{N} = \frac{|dN/dt|}{N} \tag{dari 6.1}$$
+  </div>
+
+  <div class="formula-box">
+    <div class="label">Dari Grafik Semilog (Campuran 2 Komponen)</div>
+    Kurva total = \(A_1 e^{-\lambda_1 t} + A_2 e^{-\lambda_2 t}\).
+    Pada \(t\) besar: hanya komponen berumur panjang yang tersisa → dapatkan \(\lambda_1\).
+    Kurangi dari total → dapatkan \(\lambda_2\).
+  </div>
+
+  <ul class="point-list">
+    <li>Metode grafis semilog sangat efektif untuk memisahkan campuran dua radionuklida dengan t₁/₂ berbeda cukup jauh.</li>
+    <li>Ketidakpastian pengukuran ditentukan oleh statistik cacahan dan ketelitian penentuan \(\lambda\).</li>
+    <li>Aktivitas diukur dengan detektor (Geiger-Müller, sintilator, semikonduktor) dalam interval pendek \(\Delta t \ll t_{1/2}\).</li>
+  </ul>
+</div>
+
+<!-- ═══════════════════ SECTION 16 ═══════════════════ -->
+<div class="section-card" id="s16">
+  <span class="section-number">Bagian 16</span>
+  <h2 class="section-title">🪨 Umur Mineral dan Batuan</h2>
+
+  <ul class="point-list arrow">
+    <li>Batuan terbentuk saat mineral mengkristal — menjebak inti induk radioaktif dalam tempatnya. Inilah "titik nol" jam radioaktif.</li>
+    <li>Saat ini, ukur rasio anak/induk → hitung \(\Delta t\).</li>
+    <li>Asumsi utama: tidak ada atom yang hilang atau masuk sejak kristalisasi.</li>
+  </ul>
+
+  <div class="formula-box">
+    <div class="label">Persamaan Umur Batuan (Tanpa Anak Awal)</div>
+    $$\Delta t = \frac{1}{\lambda}\ln\!\left(1 + \frac{N_D}{N_P}\right) \tag{6.41}$$
+  </div>
+
+  <div class="formula-box">
+    <div class="label">Metode Isokron Rb-Sr</div>
+    $$\frac{^{87}\text{Sr}}{^{86}\text{Sr}}\bigg|_{t_1} = \frac{^{87}\text{Rb}}{^{86}\text{Sr}}\bigg|_{t_1} \left(e^{\lambda\Delta t} - 1\right) + \left.\frac{^{87}\text{Sr}}{^{86}\text{Sr}}\right|_{t_0}$$
+    Plot linear memberikan kemiringan = \(e^{\lambda\Delta t} - 1\) → \(\Delta t\).
+  </div>
+
+  <ul class="point-list">
+    <li>Berbagai metode (Rb-Sr, U-Pb, K-Ar, fisi U) semuanya menunjukkan <strong>usia Bumi ≈ 4,5×10⁹ tahun</strong>.</li>
+    <li>Metode isokron mengatasi masalah anak awal yang tidak diketahui karena menggunakan isotop stabil referensi (⁸⁶Sr, ²⁰⁴Pb).</li>
+    <li>Kelinearan isokron juga memvalidasi asumsi sistem tertutup (tidak ada kehilangan atom).</li>
+  </ul>
+
+  <div class="example-box">
+    <div class="ex-title">📝 Contoh: Usia Batuan dari Peluruhan ²³²Th (Soal 17 — Krane)</div>
+    <p>Batuan mengandung 3,65 g ²³²Th dan 0,75 g ²⁰⁸Pb. Hitung usia batuan! (\(t_{1/2} = 1{,}41\times10^{10}\) tahun; massa atom Th = 232, Pb = 208).</p>
+    <div class="solution-step">
+      <div class="step-label">✏️ Penyelesaian</div>
+      <p>$$N_P = \frac{3{,}65}{232}\times N_A; \quad N_D = \frac{0{,}75}{208}\times N_A$$</p>
+      <p>$$\frac{N_D}{N_P} = \frac{0{,}75/208}{3{,}65/232} = \frac{0{,}75 \times 232}{208 \times 3{,}65} \approx 0{,}2293$$</p>
+      <p>$$\lambda = \frac{0{,}693}{1{,}41\times10^{10}} = 4{,}915\times10^{-11}\,\text{y}^{-1}$$</p>
+      <p>$$\Delta t = \frac{1}{\lambda}\ln(1 + 0{,}2293) = \frac{\ln(1{,}2293)}{4{,}915\times10^{-11}} \approx \boxed{4{,}19\times10^9\text{ tahun}}$$</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="icon">🌍</div>
+    <div class="text">Data dari berbagai metode penanggalan batuan Bumi, Bulan, dan meteorit semuanya menunjukkan usia yang konsisten: <strong>∼4,5 miliar tahun</strong> — salah satu keberhasilan fisika nuklir terpenting untuk kosmologi dan geologi.</div>
+  </div>
+</div>
+
+</main>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer>
+  <p>📚 Resume Fisika Nuklir — Peluruhan Radioaktif</p>
+  <p style="margin-top:4px;">Disusun berdasarkan: <em>Krane, K.S. — Introductory Nuclear Physics</em> (Hal. 160–205) &amp; <em>Prasad, R. — Nuclear Physics, Pearson Education</em> (Hal. 201–267)</p>
+</footer>
+
+</body>
+</html>
